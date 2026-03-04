@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import users
+from app.routers import users, requests
 
 app = FastAPI(
     title="SendCloud Assignment - Rate Limiting API",
@@ -9,7 +9,13 @@ app = FastAPI(
 
 # Routers
 app.include_router(users.router)
+app.include_router(requests.router)
 
-@app.get("/")
+@app.get("/", tags=["root"])
 async def root():
-    return {"message": "Hey! Welcome to my SendCloud Backend API assignment"}
+    """Root endpoint - API health check"""
+    return {
+        "message": "Hey! Welcome to my SendCloud Backend API assignment",
+        "docs": "/docs",
+        "redoc": "/redoc"
+    }
