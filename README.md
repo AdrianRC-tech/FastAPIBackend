@@ -1,5 +1,3 @@
-# Sendcloud Backend Technical Assignment
-
 ## Overview
 This is a FastAPI implementation with in-memory user management and rate limiting capabilities. The API allows creating users, making requests on their behalf, and checking their current quota usage.
 
